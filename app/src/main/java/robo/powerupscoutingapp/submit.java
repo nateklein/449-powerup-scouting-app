@@ -39,7 +39,8 @@ public class submit extends Activity {
                 File data = new File(dir, "data.csv");
                 PrintWriter writer = new PrintWriter(data);
                 // File with all matches from the current Kindle - appended to every match
-                BufferedWriter allWriter = new BufferedWriter(new FileWriter(root.getAbsolutePath() + "/download/" + "alldata.csv", true));
+                BufferedWriter allWriter = new BufferedWriter(new FileWriter(root.getAbsolutePath() +
+                                                              "/download/" + "alldata.csv", true));
                 String csvString = MainActivity.db.toString();
                 writer.println(csvString);
                 allWriter.append(csvString + "\n");

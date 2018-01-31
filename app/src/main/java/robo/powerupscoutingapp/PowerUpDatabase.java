@@ -31,7 +31,7 @@ public class PowerUpDatabase {                         // game will change each 
         return "";
     }
 
-    public static String checkData() {
+    public String checkData() {
         String errors = "";
         // check for errors
         return errors;
