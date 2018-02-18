@@ -8,8 +8,6 @@ package robo.powerupscoutingapp;
  * Created by Nate on 10/10/2017.
  */
 
-import java.util.ArrayList;
-
 public class PowerUpDatabase {                         // game will change each year
 
     // All data being collected
@@ -33,7 +31,8 @@ public class PowerUpDatabase {                         // game will change each 
     public int scaleDeliv;
     public int scaleDrop;
     public int scaleWrong;
-    public ArrayList<String> intakes;
+    public boolean groundPickup;
+    public boolean portalIntake;
     public int cubesDroppedInTransit;
     // Endgame
     public int climbType;
@@ -69,7 +68,8 @@ public class PowerUpDatabase {                         // game will change each 
         scaleDeliv = 0;
         scaleDrop = 0;
         scaleWrong = 0;
-        intakes = new ArrayList<>();
+        groundPickup = false;
+        portalIntake = false;
         cubesDroppedInTransit = 0;
         // Endgame
         climbType = 0;
@@ -86,15 +86,12 @@ public class PowerUpDatabase {                         // game will change each 
 
     @Override
     public String toString() {
-        String intakeString = "";
-        for (String intake : intakes) {
-            intakeString += intake;
-        }
         return scoutName+","+matchNumber+","+teamNumber+","+(noShow ? 1 : 0)+","+(autoBaseline ? 1 : 0)+","+
                 autoSwitch+","+autoSwitchTime+","+autoScale+","+autoScaleTime+","+(grabbedSecondCube ? 1 : 0)+
                 ","+vaultCubes+","+switchDeliv+","+switchDrop+","+switchWrong+","+scaleDeliv+","+scaleDrop+
-                ","+scaleWrong+","+intakeString+","+cubesDroppedInTransit+","+climbType+","+climb+","+
-                climbTime+","+park+","+numPossAssists+","+numAssists+","+dead+","+defense+","+comments;
+                ","+scaleWrong+","+(groundPickup ? 1 : 0)+","+(portalIntake ? 1 : 0)+","+cubesDroppedInTransit+
+                ","+climbType+","+climb+","+climbTime+","+park+","+numPossAssists+","+numAssists+","+dead+
+                ","+defense+","+comments;
     }
 
     public String checkData() {
