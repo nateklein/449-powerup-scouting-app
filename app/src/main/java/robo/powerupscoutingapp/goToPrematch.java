@@ -46,8 +46,8 @@ public class goToPrematch extends Activity implements AdapterView.OnItemSelected
         matchNumber.setAdapter(matchAdapter);
         matchNumber.setOnItemSelectedListener(this);
         matchNumber.setSelection(MainActivity.db.matchNumber);
-        teamNumberValue = teamNumber.getItemAtPosition(0).toString();
-        matchNumberValue = matchNumber.getItemAtPosition(0).toString();
+        teamNumberValue = teamNumber.getItemAtPosition(MainActivity.db.teamNumber).toString();
+        matchNumberValue = matchNumber.getItemAtPosition(MainActivity.db.matchNumber).toString();
     }
 
     @Override
