@@ -17,6 +17,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,7 +27,8 @@
         <activity android:name=".goToAuto" />
         <activity android:name=".submit" />
         <activity android:name=".fixErrors" />
-        <activity android:name=".submitted"></activity>
+        <activity android:name=".submitted" />
+        <activity android:name=".goToPostmatch"></activity>
     </application>
 
 </manifest>
