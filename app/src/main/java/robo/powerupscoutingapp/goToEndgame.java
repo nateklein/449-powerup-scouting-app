@@ -67,6 +67,9 @@ public class goToEndgame extends Activity {
                 climb.check(R.id.climbFailed);
                 break;
             case 3:
+                climb.check(R.id.climbFell);
+                break;
+            case 4:
                 climb.check(R.id.climbSuccess);
                 break;
         }
@@ -152,8 +155,11 @@ public class goToEndgame extends Activity {
             case R.id.climbFailed:
                 MainActivity.db.climb = 2;
                 break;
-            case R.id.climbSuccess:
+            case R.id.climbFell:
                 MainActivity.db.climb = 3;
+                break;
+            case R.id.climbSuccess:
+                MainActivity.db.climb = 4;
                 break;
             default:
                 MainActivity.db.climb = 0;
@@ -208,8 +214,11 @@ public class goToEndgame extends Activity {
             case R.id.climbFailed:
                 MainActivity.db.climb = 2;
                 break;
-            case R.id.climbSuccess:
+            case R.id.climbFell:
                 MainActivity.db.climb = 3;
+                break;
+            case R.id.climbSuccess:
+                MainActivity.db.climb = 4;
                 break;
             default:
                 MainActivity.db.climb = 0;

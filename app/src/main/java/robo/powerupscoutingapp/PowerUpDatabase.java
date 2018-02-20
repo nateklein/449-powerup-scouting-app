@@ -16,6 +16,7 @@ public class PowerUpDatabase {                         // game will change each 
     public int matchNumber;
     public int teamNumber;
     public boolean noShow;
+    public int startPos;
     // Auto
     public boolean autoBaseline;
     public int autoSwitch;
@@ -53,6 +54,7 @@ public class PowerUpDatabase {                         // game will change each 
         matchNumber = 0;
         teamNumber = 0;
         noShow = false;
+        startPos = 0;
         // Auto
         autoBaseline = false;
         autoSwitch = 0;

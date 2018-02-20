@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class goToPrematch extends Activity implements AdapterView.OnItemSelectedListener {
@@ -23,6 +24,7 @@ public class goToPrematch extends Activity implements AdapterView.OnItemSelected
     private ArrayAdapter<CharSequence> teamAdapter;
     private Spinner matchNumber;
     private ArrayAdapter<CharSequence> matchAdapter;
+    private RadioGroup startingPos;
 
     // Displays prematch page on activity call
     @Override
@@ -48,6 +50,24 @@ public class goToPrematch extends Activity implements AdapterView.OnItemSelected
         matchNumber.setSelection(MainActivity.db.matchNumber);
         teamNumberValue = teamNumber.getItemAtPosition(MainActivity.db.teamNumber).toString();
         matchNumberValue = matchNumber.getItemAtPosition(MainActivity.db.matchNumber).toString();
+        startingPos = (RadioGroup) findViewById(R.id.startPos);
+        switch (MainActivity.db.startPos) {
+            case 0:
+                startingPos.clearCheck();
+                break;
+            case 1:
+                startingPos.check(R.id.startPosLeft);
+                break;
+            case 2:
+                startingPos.check(R.id.startPosMid);
+                break;
+            case 3:
+                startingPos.check(R.id.startPosRightish);
+                break;
+            case 4:
+                startingPos.check(R.id.startPosRight);
+                break;
+        }
     }
 
     @Override
@@ -81,6 +101,23 @@ public class goToPrematch extends Activity implements AdapterView.OnItemSelected
         // Saves values to PowerUpDatabase
         MainActivity.db.scoutName = scoutNameText.getText().toString();
         MainActivity.db.noShow = noShowBox.isChecked();
+        switch (startingPos.getCheckedRadioButtonId()) {
+            case R.id.startPosLeft:
+                MainActivity.db.startPos = 1;
+                break;
+            case R.id.startPosMid:
+                MainActivity.db.startPos = 2;
+                break;
+            case R.id.startPosRightish:
+                MainActivity.db.startPos = 3;
+                break;
+            case R.id.startPosRight:
+                MainActivity.db.startPos = 4;
+                break;
+            default:
+                MainActivity.db.startPos = 0;
+                break;
+        }
         // Switches pages
         Intent toAuto = new Intent(this, goToAuto.class);
         startActivity(toAuto);
